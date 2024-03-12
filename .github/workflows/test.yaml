@@ -1,0 +1,48 @@
+name: Run tests
+
+on: deployment
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    name: Tests
+    runs-on: windows-latest
+    timeout-minutes: 10
+    if: github.actor != 'github-classroom[bot]'
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4.1.1
+
+      - uses: actions/setup-node@v4.0.1
+        with:
+          node-version: 20.10.0
+      - run: npm ci
+
+      - run: npx playwright install --with-deps
+      - run: npx playwright test --reporter=junit tests/integration/screenshots
+        env:
+          PLAYWRIGHT_JUNIT_OUTPUT_NAME: integration-junit.xml
+        continue-on-error: true
+
+      - uses: actions/upload-artifact@v4.0.0
+        with:
+          name: test results
+          path: test-results
+          compression-level: 0
+
+      - uses: Central-University-IT/junit-action@main
+        with:
+          files: |
+            integration-junit.xml
+        id: junit
+
+      - uses: actions/upload-artifact@v4.0.0
+        with:
+          name: result
+          path: ${{ steps.junit.outputs.result_file }}
+          if-no-files-found: error
+          compression-level: 0

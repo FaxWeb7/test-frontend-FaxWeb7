@@ -1,0 +1,19 @@
+{
+  "name": "test-frontend",
+  "version": "1.0.0",
+  "scripts": {
+    "playwright-test": "playwright test",
+    "playwright-test:ui": "playwright test --ui",
+    "http-server": "http-server --port 8080 solution"
+  },
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@playwright/test": "^1.41.0",
+    "@types/node": "^20.11.5",
+    "http-server": "^14.1.1",
+    "prettier": "^3.2.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

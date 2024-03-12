@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конструктор резюме</title>
+    <link rel="stylesheet" href="styles/index.css" />
+</head>
+
+<body>
+    <!-- EDIT RESUME PAGE -->
+    <div class="edit-resume__wrapper invis" id="edit_resume_page" test-id=resume-builder>
+        <h1 test-id=resume-form-title class="edit__item" style="font-size: 35px;">Конструктор резюме</h1>
+        <div class="edit__item personal">
+            <h1 class="edit__item-title">Личные данные:</h1>
+            <label for="flname_input">ФИО:</label>
+            <input type="text" id="flname_input" test-id=personal-info required>
+            <label for="birth_input">Дата рождения:</label>
+            <input type="date" id="birth_input" test-id=personal-info>
+            <label for="city_input">Город:</label>
+            <input type="text" id="city_input" test-id=personal-info>
+            <label for="phone_input">Номер телефона:</label>
+            <input type="tel" id="phone_input" test-id=personal-info>
+            <label for="email_input">Email:</label>
+            <input type="email" id="email_input" test-id=personal-info>
+        </div>
+        <div class="edit__item interests">
+            <h1 class="edit__item-title">Интересы:</h1>
+            <div class="edit__item interest-wrapper">
+                <label for="interest_input">Введите текст нового интереса:</label>
+                <input type="text" id="interest_input" test-id=interest>
+            </div>
+            <div class="edit__btn-wrapper">
+                <button class="edit__item-btn" id="add_interest" test-id=add-interest>Добавить интерес</button>
+                <button class="edit__item-btn" id="remove_interest" test-id=remove-interest>Удалить последний
+                    интерес</button>
+            </div>
+        </div>
+        <div class="edit__item languages">
+            <h1 class="edit__item-title">Языки:</h1>
+            <div class="edit__item language-wrapper">
+                <label for="language_input">Введите новый язык:</label>
+                <input type="text" id="language_input" test-id=language-name>
+                <label for="language_level_input">Введите уровень владения новым языком:</label>
+                <input type="text" id="language_level_input" test-id=language-level>
+            </div>
+            <div class="edit__btn-wrapper">
+                <button class="edit__item-btn" id="add_language" test-id=add-language>Добавить данные о языке</button>
+                <button class="edit__item-btn" id="remove_language" test-id=remove-language>Удалить данные о последнем
+                    языке</button>
+            </div>
+        </div>
+        <div class="edit__item self-description">
+            <h1 class="edit__item-title">Описание резюме:</h1>
+            <label for="self_description_input">Введите описание для своего резюме:</label>
+            <input type="text" id="self_description_input" styles="visibility: visible" test-id=personal-description>
+        </div>
+        <div class="edit__item work-experience">
+            <h1 class="edit__item-title">Опыт работы:</h1>
+            <div class="edit__item experience-wrapper">
+                <label for="post_input">Введите должность:</label>
+                <input type="text" id="post_input" test-id=job-title>
+                <label for="work_start_date_input">Введите дату начала работы:</label>
+                <input type="date" id="work_start_date_input" test-id=job-date-start>
+                <label for="work_end_date_input">Введите дату окончания работы:</label>
+                <input type="date" id="work_end_date_input" test-id=job-date-end>
+                <label for="work_place_input">Введите название места работы:</label>
+                <input type="text" id="work_place_input" test-id=job-place>
+                <label for="work_information_input">Введите чем вы занимались на работе:</label>
+                <input type="text" id="work_information_input" test-id=job-description>
+            </div>
+            <div class="edit__btn-wrapper">
+                <button class="edit__item-btn" id="add_work_experience" test-id=add-job>Добавить опыт работы</button>
+                <button class="edit__item-btn" id="remove_work_experience" test-id=remove-job>Удалить данные о последнем
+                    опыте работы</button>
+            </div>
+        </div>
+        <div class="edit__item education">
+            <h1 class="edit__item-title">Образование и квалификация:</h1>
+            <div class="edit__item education-wrapper">
+                <label for="education_input">Введите высшее образование:</label>
+                <input type="text" id="education_input" test-id=education-title>
+                <label for="education_start_date_input">Введите дату начала обучения:</label>
+                <input type="date" id="education_start_date_input" test-id=education-date-start>
+                <label for="education_end_date_input">Введите дату окончания обучения:</label>
+                <input type="date" id="education_end_date_input" test-id=education-date-end>
+                <label for="education_place_input">Введите название места обучения:</label>
+                <input type="text" id="education_place_input" test-id=education-place>
+                <label for="education_addedinformation_input">Введите дополнительную информацию об учебе:</label>
+                <input type="text" id="education_addedinformation_input" test-id=education-description>
+            </div>
+            <div class="edit__btn-wrapper">
+                <button class="edit__item-btn" id="add_education" test-id=add-education>Добавить инфо об
+                    образовании</button>
+                <button class="edit__item-btn" id="remove_education" test-id=remove-education>Удалить данные о последнем
+                    образовании</button>
+            </div>
+        </div>
+        <div class="edit__item education">
+            <h1 class="edit__item-title">Курсы:</h1>
+            <div class="edit__item course-wrapper">
+                <label for="course_title_input">Введите название курса:</label>
+                <input type="text" id="course_title_input" test-id=course-title>
+                <label for="course_start_date_input">Введите дату начала прохождения:</label>
+                <input type="date" id="course_start_date_input" test-id=course-date-start>
+                <label for="course_end_date_input">Введите дату окончания прохождения:</label>
+                <input type="date" id="course_end_date_input" test-id=course-date-end>
+                <label for="course_organization_input">Введите название организации курса:</label>
+                <input type="text" id="course_organization_input" test-id=course-place>
+            </div>
+            <div class="edit__btn-wrapper">
+                <button class="edit__item-btn" id="add_course" test-id=add-course>Добавить инфо о курсе</button>
+                <button class="edit__item-btn" id="remove_course" test-id=remove-course>Удалить данные о последнем
+                    курсе</button>
+            </div>
+        </div>
+        <button class="edit__generate-btn" id="generate_resume" test-id=generate-resume disabled="true">ГОТОВО</button>
+    </div>
+
+
+    <!-- RESUME PAGE -->
+    <div class="resume__wrapper" id="resume_page" test-id=resume-main-content>
+        <svg class="back_btn" id="back_btn" test-id=back-button stroke="white" fill="currentColor" stroke-width="0"
+            viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg">
+            <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"
+                d="M249.38 336 170 256l79.38-80m-68.35 80H342"></path>
+            <path fill="none" stroke-miterlimit="10" stroke-width="32"
+                d="M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192 192-86 192-192z"></path>
+        </svg>
+        <!-- NAV -->
+        <nav class="nav" test-id=resume-main-article>
+            <img src="images/photo.jpg" alt="image" class="nav__photo">
+            <!-- NAV PERSONAL DATA -->
+            <div class="nav__data" id="personal" test-id=resume-main-section>
+                <h2 class="nav__data-title">Личные данные</h2>
+                <hr class="nav__line">
+                <div class="nav__data-item personal name">
+                    <h3 class="nav__data-itemtext">ФИО</h3>
+                    <h4 class="nav__data-itemdata" id="full_name_text">Данилов Дмитрий Евгеньевич</h4>
+                </div>
+                <div class="nav__data-item personal birth" id="birth">
+                    <h3 class="nav__data-itemtext">Дата рождения</h3>
+                    <h4 class="nav__data-itemdata" id="birthday_text">05.05.1986</h4>
+                </div>
+                <div class="nav__data-item personal city" id="city">
+                    <h3 class="nav__data-itemtext">Город</h3>
+                    <h4 class="nav__data-itemdata" id="city_text">Ижевск</h4>
+                </div>
+                <div class="nav__data-item personal number" id="phone">
+                    <h3 class="nav__data-itemtext">Номер телефона</h3>
+                    <h4 class="nav__data-itemdata" id="phone_text">+7 (234) 228 18-15</h4>
+                </div>
+                <div class="nav__data-item personal email" id="email">
+                    <h3 class="nav__data-itemtext">Email</h3>
+                    <h4 class="nav__data-itemdata" id="email_text">beautifulfly@yandex.ru</h4>
+                </div>
+            </div>
+            <!-- NAV INTERESTS -->
+            <div class="nav__data" id="interests" test-id=resume-main-section>
+                <h2 class="nav__data-title">Интересы</h2>
+                <hr class="nav__line">
+                <h3 class="nav__data-item interests">Хороший лидер</h3>
+                <h3 class="nav__data-item interests">Занимаюсь спортом</h3>
+                <h3 class="nav__data-item interests">Строительные практики</h3>
+                <h3 class="nav__data-item interests">Выпускал журналы</h3>
+            </div>
+            <!-- NAV LANGUAGES -->
+            <div class="nav__data" id="languages" test-id=resume-main-section>
+                <h2 class="nav__data-title">Языки</h2>
+                <hr class="nav__line">
+                <div class="nav__data-item languages">
+                    <h3 class="nav__data-itemtext">Английский</h3>
+                    <p class="nav__data-itemdata">C1</p>
+                </div>
+                <div class="nav__data-item languages">
+                    <h3 class="nav__data-itemtext">Испанский</h3>
+                    <p class="nav__data-itemdata">B2</p>
+                </div>
+            </div>
+        </nav>
+        <!-- MAIN -->
+        <main class="main" test-id=resume-main-article>
+            <!-- MAIN DESCRIPTION -->
+            <div class="main__descwrapper" test-id=resume-main-section>
+                <h1 class="main__title">Данилов Дмитрий Евгеньевич</h1>
+                <div class="main__data" id="description">
+                    <hr class="main__line">
+                    <p class="main__data-description">В целом достаточно сильный разработчик, я бы даже сказал умный, вообще умен не по годам. Подниму ваш проект, удалю все легаси, и все коммиты будут маленькими по 15 строк кода.</p>
+                </div>
+            </div>
+            <!-- MAIN WORK EXPERIENCE -->
+            <div class="main__data" id="work" test-id=resume-main-section>
+                <h2 class="main__data-title">Опыт работы</h2>
+                <hr class="main__line">
+                <!-- remove here -->
+                <ul class="main__data-list">
+                    <div class="main__data-item">
+                        <div class="main__data-item-container">
+                            <div class="main__data-item-titlewrapper">
+                                <h3 class="main__data-item-title">C++ разработчик</h3>
+                                <h4 class="main__data-item-description">ООО Рога и Копыта, Москва</h4>
+                            </div>
+                            <p class="main__data-item-date">сентябрь 2020 г. — наст. время</p>
+                        </div>
+                        <p class="main__data-item-text">Писал компилятор под js, который позволял ускорить билд
+                            приложений.</p>
+                    </div>
+                    <div class="main__data-item">
+                        <div class="main__data-item-container">
+                            <div class="main__data-item-titlewrapper">
+                                <h3 class="main__data-item-title">Angular-разработчик</h3>
+                                <h4 class="main__data-item-description">Тинькофф Центр Разработки, Ижевск</h4>
+                            </div>
+                            <p class="main__data-item-date">февраль 2020 г. — август 2020 г.</p>
+                        </div>
+                        <p class="main__data-item-text">Придумывал аналитические решения и разрабатывал веб-сайты для улучшения опыта пользователей.</p>
+                    </div>
+                </ul>
+            </div>
+            <!-- MAIN EDUCATION & QUAIFICATION -->
+            <div class="main__data" id="education" test-id=resume-main-section>
+                <h2 class="main__data-title">Образование и квалификация</h2>
+                <hr class="main__line">
+                <ul class="main__data-list">
+                    <div class="main__data-item">
+                        <div class="main__data-item-container">
+                            <div class="main__data-item-titlewrapper">
+                                <h3 class="main__data-item-title">Магистратура</h3>
+                                <h4 class="main__data-item-description">ЦУ, Москва</h4>
+                            </div>
+                            <p class="main__data-item-date">сентябрь 2020 г. — наст. время</p>
+                        </div>
+                        <p class="main__data-item-text">Дизайн и разработка ПО</p>
+                    </div>
+                    <div class="main__data-item">
+                        <div class="main__data-item-container">
+                            <div class="main__data-item-titlewrapper">
+                                <h3 class="main__data-item-title">Бакалавриат</h3>
+                                <h4 class="main__data-item-description">Уральский федеральный университет, Екатеринбург
+                                </h4>
+                            </div>
+                            <p class="main__data-item-date">февраль 2020 г. — август 2020 г.</p>
+                        </div>
+                        <p class="main__data-item-text">Направление: МОАИС.</p>
+                    </div>
+                </ul>
+            </div>
+            <!-- MAIN COURSES -->
+            <div class="main__data" id="courses" test-id=resume-main-section>
+                <h2 class="main__data-title">Курсы</h2>
+                <hr class="main__line">
+                <ul class="main__data-list">
+                    <div class="main__data-item">
+                        <div class="main__data-item-container">
+                            <div class="main__data-item-titlewrapper">
+                                <h3 class="main__data-item-title">Школа промышленной разработки</h3>
+                                <h4 class="main__data-item-description">Известная компания</h4>
+                            </div>
+                            <p class="main__data-item-date">январь 2021 г. — май 2021 г.</p>
+                        </div>
+                    </div>
+                    <div class="main__data-item">
+                        <div class="main__data-item-container">
+                            <div class="main__data-item-titlewrapper">
+                                <h3 class="main__data-item-title">Основы JavaScript, HTML, CSS</h3>
+                                <h4 class="main__data-item-description">ЦУ</h4>
+                            </div>
+                            <p class="main__data-item-date">февраль 2020 г. — август 2020 г.</p>
+                        </div>
+                    </div>
+                    <div class="main__data-item">
+                        <div class="main__data-item-container">
+                            <div class="main__data-item-titlewrapper">
+                                <h3 class="main__data-item-title">Разработка на C++</h3>
+                                <h4 class="main__data-item-description">Образование для Всех</h4>
+                            </div>
+                            <p class="main__data-item-date">январь 2019 г. — январь 2020 г.</p>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <script src="scripts/index.js"></script>
+</body>
+
+</html>
